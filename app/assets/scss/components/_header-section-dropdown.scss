@@ -1,0 +1,32 @@
+@use "../abstracts/colors";
+
+
+@mixin section-category-dropdown-link() {
+  background-color: colors.$green-400;
+  border: 3px solid colors.$green-800;
+  transition: all 0.1s;
+
+  &:first-of-type {
+    border-radius: 0 18px 0 0;
+  }
+
+  &:last-of-type {
+    border-radius: 0 0 18px 18px;
+  }
+
+  &:hover {
+    background: colors.$orange-300;
+    border: 3px solid colors.$orange-900;
+  }
+
+  &:has(.active) {
+    background: colors.$orange-400;
+    border: 3px solid colors.$orange-700;
+  }
+}
+
+@mixin dropdown-style() {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+}

@@ -1,0 +1,53 @@
+/*
+styles.scss serves for styling content globally
+Also can use variables
+*/
+
+@use "styles/style-reset";
+@use "abstracts/fonts";
+@use "abstracts/colors";
+@use "abstracts/mixins";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: fonts.$font-family-primary;
+  background: colors.$orange-100;
+  @include mixins.custom-scrollbar()
+}
+
+page {
+  & > h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: fonts.$font-family-primary;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+a {
+  text-decoration: none;
+}
+
+p,
+span,
+a {
+  font-family: fonts.$font-family-secondary;
+  //word-break: break-all;
+}
+
+.page > p {
+  margin: 1em 0;
+}

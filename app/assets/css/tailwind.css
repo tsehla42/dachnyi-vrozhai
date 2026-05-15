@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* Font families */
+  --font-primary: "Anime Ace v05", Montserrat, Calibri, Helvetica, sans-serif;
+  --font-secondary: Montserrat, Calibri, Helvetica, sans-serif;
+  --font-tertiary: Calibri, Helvetica, sans-serif;
+
+  /* Green palette */
+  --color-green-50: #EFFDF5;
+  --color-green-100: #FCFFEE;
+  --color-green-200: #EDF6C5;
+  --color-green-300: #C7D978;
+  --color-green-400: #B2C851;
+  --color-green-500: #92A92C;
+  --color-green-600: #738815;
+  --color-green-700: #5B6C0F;
+  --color-green-800: #3F4B07;
+  --color-green-900: #252D01;
+  --color-green-950: #20280b;
+
+  /* Orange palette */
+  --color-orange-50: #FFF9F3;
+  --color-orange-100: #FFF2E5;
+  --color-orange-200: #FFE7D2;
+  --color-orange-300: #FFC793;
+  --color-orange-400: #FFA859;
+  --color-orange-500: #FD8D27;
+  --color-orange-600: #D16B0D;
+  --color-orange-700: #934A07;
+  --color-orange-800: #5C2E03;
+  --color-orange-900: #2F1701;
+
+  /* Gray palette */
+  --color-gray-200: #E0E0E0;
+  --color-gray-300: #C0C0C0;
+  --color-gray-400: #A0A0A0;
+  --color-gray-500: #969696;
+  --color-gray-600: #808080;
+  --color-gray-700: #565656;
+  --color-gray-800: #404040;
+  --color-gray-900: #202020;
+  --color-gray-950: #121212;
+
+  /* Animations */
+  --animate-slide-off: slide-off 0.5s cubic-bezier(0, 0.01, 1, 0.21) 1 forwards;
+  --animate-horizontal-bounce: horizontal-bounce 1s infinite;
+
+  @keyframes slide-off {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(1000px); }
+  }
+
+  @keyframes horizontal-bounce {
+    0%, 100% {
+      transform: translateX(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateX(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+}
+
+@utility border-3 {
+  border-width: 3px;
+}
+
+/* Accordion collapse/expand animations required by Reka UI's CollapsibleContent */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--reka-collapsible-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--reka-collapsible-content-height); }
+  to { height: 0; }
+}
