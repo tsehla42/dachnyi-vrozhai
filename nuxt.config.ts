@@ -15,6 +15,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'static',
     static: true,
     prerender: {
       // Seed the crawler with the 5 section index pages.

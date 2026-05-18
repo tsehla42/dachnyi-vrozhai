@@ -1,0 +1,5 @@
+name = "dachnyi-vrozhai"
+compatibility_date = "2026-05-18"
+
+[assets]
+directory = ".output/public"
