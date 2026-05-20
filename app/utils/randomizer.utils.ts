@@ -58,15 +58,15 @@ export class Random {
       /* a default initial seed is used */
 
       for (kk = 0; kk < Random.N - Random.M; kk++) {
-        y = (this.mt[kk] & Random.UPPER_MASK) | (this.mt[kk + 1] & Random.LOWER_MASK);
-        this.mt[kk] = this.mt[kk + Random.M] ^ (y >>> 1) ^ mag01[y & 0x1];
+        y = (this.mt[kk]! & Random.UPPER_MASK) | (this.mt[kk + 1]! & Random.LOWER_MASK);
+        this.mt[kk] = this.mt[kk + Random.M]! ^ (y >>> 1) ^ mag01[y & 0x1]!;
       }
       for (; kk < Random.N - 1; kk++) {
-        y = (this.mt[kk] & Random.UPPER_MASK) | (this.mt[kk + 1] & Random.LOWER_MASK);
-        this.mt[kk] = this.mt[kk + (Random.M - Random.N)] ^ (y >>> 1) ^ mag01[y & 0x1];
+        y = (this.mt[kk]! & Random.UPPER_MASK) | (this.mt[kk + 1]! & Random.LOWER_MASK);
+        this.mt[kk] = this.mt[kk + (Random.M - Random.N)]! ^ (y >>> 1) ^ mag01[y & 0x1]!;
       }
-      y = (this.mt[Random.N - 1] & Random.UPPER_MASK) | (this.mt[0] & Random.LOWER_MASK);
-      this.mt[Random.N - 1] = this.mt[Random.M - 1] ^ (y >>> 1) ^ mag01[y & 0x1];
+      y = (this.mt[Random.N - 1]! & Random.UPPER_MASK) | (this.mt[0]! & Random.LOWER_MASK);
+      this.mt[Random.N - 1] = this.mt[Random.M - 1]! ^ (y >>> 1) ^ mag01[y & 0x1]!
 
       this.mti = 0;
     }

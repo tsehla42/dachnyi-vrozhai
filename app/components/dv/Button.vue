@@ -33,8 +33,8 @@ defineProps({
 </script>
 
 <template>
-  <UButton v-if="isLink" :ui :label :to color="black" active-class="active" exact-active-class="exact-active" />
-  <UButton v-else :ui :label color="black" active-class="active" exact-active-class="exact-active" />
+  <UButton v-if="isLink" :ui :label :to color="neutral" active-class="active" exact-active-class="exact-active" />
+  <UButton v-else :ui :label color="neutral" active-class="active" exact-active-class="exact-active" />
 </template>
 
 <style scoped lang="scss"></style>

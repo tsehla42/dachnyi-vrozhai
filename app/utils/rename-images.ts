@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { transliterate } from '../../utils';
+import { transliterate } from './index';
 
 const publicImagesDir = path.join(process.cwd(), 'public', 'images');
 

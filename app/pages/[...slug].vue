@@ -10,9 +10,10 @@ interface PageDoc extends PageCollectionItemBase {
 }
 
 const route = useRoute();
-const { data: doc } = await useAsyncData<PageDoc>(`content-${route.path}`, () =>
-  queryCollection<PageDoc>('content').path(route.path).first() as Promise<PageDoc | null>,
-);
+const { data: doc } = await useAsyncData<PageDoc | null>(`content-${route.path}`, async () => {
+  const result = await queryCollection('content').path(route.path).first();
+  return result as PageDoc | null;
+});
 
 // Map frontmatter section value (may be kebab-case, e.g. 'shkidnyky-i-khvoroby')
 // to the SectionsEnum key that CategoryList expects (e.g. 'shkidnykyIKhvoroby').

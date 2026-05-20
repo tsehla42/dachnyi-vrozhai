@@ -98,7 +98,7 @@ export const transliterate = (input: string, camelCase: boolean = false, lowerca
         if (i === 0) {
           return word;
         }
-        const uppercaseLetter = word[0].toUpperCase();
+        const uppercaseLetter = word.charAt(0).toUpperCase();
         const rest = word.slice(1);
         return `${uppercaseLetter}${rest}`;
       })

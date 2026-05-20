@@ -147,7 +147,7 @@ const articleProperties = {
     if (articleLabel.value) {
       articleLabel.value.classList.add('z-[6]');
       articleLabel.value.classList.remove('opacity-0');
-      articleLabel.value.textContent = String(items[randomArticleId.value].articleLabel);
+      articleLabel.value.textContent = String(items[randomArticleId.value]!.articleLabel);
     }
   },
 };
@@ -157,7 +157,7 @@ const animateCards = () => {
   const animationDuration = 120;
   const totalDuration = animationDuration * cardsRefs.value.length + 28;
   let currentIndex = 0;
-  let timeout;
+  let timeout: ReturnType<typeof setTimeout> | undefined;
 
   const stopAnimation = () => {
     clearInterval(interval);
@@ -231,7 +231,7 @@ const resetAllToDefaultState = () => {
       <div
         v-for="(item, index) in items"
         :key="item.id"
-        :ref="(el) => functionRef(el, index)"
+        :ref="(el) => functionRef(el as HTMLDivElement | null, index)"
         :class="{ [index]: true, [`id${item.id}`]: true }"
         class="image-container relative w-full h-32 border border-black overflow-hidden transition duration-200"
       >
