@@ -4,14 +4,12 @@
     "sectionName": "shkidnyky-i-khvoroby",
     "label": "Хвороби ягідників",
     "to": "/shkidnyky-i-khvoroby/khvoroby-yahidnykiv",
-    "pictureSrc": "/images/fallback/fallback-200x200.jpg",
     "articles": [
       {
         "categoryName": "khvoroby-yahidnykiv",
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Хвороби полуниці",
         "to": "/shkidnyky-i-khvoroby/khvoroby-yahidnykiv/khvoroby-polunytsi",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "khvoroby-polunytsi"
       },
       {
@@ -19,7 +17,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Хвороби смородини і агрусу",
         "to": "/shkidnyky-i-khvoroby/khvoroby-yahidnykiv/khvoroby-smorodyny-i-ahrusu",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "khvoroby-smorodyny-i-ahrusu"
       },
       {
@@ -27,7 +24,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Хвороби малини",
         "to": "/shkidnyky-i-khvoroby/khvoroby-yahidnykiv/khvoroby-malyny",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "khvoroby-malyny"
       }
     ]
@@ -37,14 +33,12 @@
     "sectionName": "shkidnyky-i-khvoroby",
     "label": "Шкідники ягідників",
     "to": "/shkidnyky-i-khvoroby/shkidnyky-yahidnykiv",
-    "pictureSrc": "/images/fallback/fallback-200x200.jpg",
     "articles": [
       {
         "categoryName": "shkidnyky-yahidnykiv",
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Шкідники полуниці",
         "to": "/shkidnyky-i-khvoroby/shkidnyky-yahidnykiv/shkidnyky-polunytsi",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "shkidnyky-polunytsi"
       },
       {
@@ -52,7 +46,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Шкідники смородини і агрусу",
         "to": "/shkidnyky-i-khvoroby/shkidnyky-yahidnykiv/shkidnyky-smorodyny-i-ahrusu",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "shkidnyky-smorodyny-i-ahrusu"
       },
       {
@@ -60,7 +53,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Шкідники малини",
         "to": "/shkidnyky-i-khvoroby/shkidnyky-yahidnykiv/shkidnyky-malyny",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "shkidnyky-malyny"
       }
     ]
@@ -70,14 +62,12 @@
     "sectionName": "shkidnyky-i-khvoroby",
     "label": "Хвороби овочів",
     "to": "/shkidnyky-i-khvoroby/khvoroby-ovochiv",
-    "pictureSrc": "/images/fallback/fallback-200x200.jpg",
     "articles": [
       {
         "categoryName": "khvoroby-ovochiv",
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Хвороби капусти",
         "to": "/shkidnyky-i-khvoroby/khvoroby-ovochiv/khvoroby-kapusty",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "khvoroby-kapusty"
       },
       {
@@ -85,7 +75,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Хвороби цибулі і часнику",
         "to": "/shkidnyky-i-khvoroby/khvoroby-ovochiv/khvoroby-tsybuli-i-chasnyku",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "khvoroby-tsybuli-i-chasnyku"
       },
       {
@@ -93,7 +82,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Хвороби гарбузових",
         "to": "/shkidnyky-i-khvoroby/khvoroby-ovochiv/khvoroby-harbuzovykh",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "khvoroby-harbuzovykh"
       },
       {
@@ -101,7 +89,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Хвороби картоплі",
         "to": "/shkidnyky-i-khvoroby/khvoroby-ovochiv/khvoroby-kartopli",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "khvoroby-kartopli"
       }
     ]
@@ -111,14 +98,12 @@
     "sectionName": "shkidnyky-i-khvoroby",
     "label": "Шкідники овочів",
     "to": "/shkidnyky-i-khvoroby/shkidnyky-ovochiv",
-    "pictureSrc": "/images/fallback/fallback-200x200.jpg",
     "articles": [
       {
         "categoryName": "shkidnyky-ovochiv",
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Шкідники капусти",
         "to": "/shkidnyky-i-khvoroby/shkidnyky-ovochiv/shkidnyky-kapusty",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "shkidnyky-kapusty"
       },
       {
@@ -126,7 +111,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Шкідники цибулі і часнику",
         "to": "/shkidnyky-i-khvoroby/shkidnyky-ovochiv/shkidnyky-tsybuli-i-chasnyku",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "shkidnyky-tsybuli-i-chasnyku"
       },
       {
@@ -134,7 +118,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Шкідники гарбузових",
         "to": "/shkidnyky-i-khvoroby/shkidnyky-ovochiv/shkidnyky-harbuzovykh",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "shkidnyky-harbuzovykh"
       },
       {
@@ -142,7 +125,6 @@
         "sectionName": "shkidnyky-i-khvoroby",
         "label": "Шкідники картоплі",
         "to": "/shkidnyky-i-khvoroby/shkidnyky-ovochiv/shkidnyky-kartopli",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "shkidnyky-kartopli"
       }
     ]

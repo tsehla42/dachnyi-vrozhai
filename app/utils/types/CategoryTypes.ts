@@ -11,7 +11,6 @@ export interface Article {
   sectionName: string;
   label: string;
   to: string;
-  pictureSrc: string;
   articleName: string;
 }
 
@@ -20,6 +19,5 @@ export interface Category {
   sectionName: string;
   label: string;
   to: string;
-  pictureSrc: string;
   articles: Article[];
 }

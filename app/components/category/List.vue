@@ -2,6 +2,7 @@
 import type { SectionsEnum } from '~/utils/types/SectionsTypes';
 import type { Category, Article } from '~/utils/types/CategoryTypes';
 import useSections from '~/composables/useSections';
+import { getImageSrc } from '~/utils';
 
 const props = defineProps({
   sectionName: {
@@ -42,7 +43,7 @@ watchEffect(() => {
       :key="c.label"
       :label="c.label"
       :to="c.to"
-      :picture-src="c.pictureSrc"
+      :picture-src="getImageSrc(c)"
     />
   </div>
 </template>

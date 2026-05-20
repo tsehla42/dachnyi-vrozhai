@@ -6,7 +6,7 @@
     class="group relative grid grid-cols-12 gap-2 p-2.5 bg-orange-100 border border-green-900 rounded-2xl hover:border-green-600 hover:bg-orange-200 transition-colors duration-200"
   >
     <NuxtImg
-      src="/images/categories/tsybulevi.jpg"
+      src="/images/ovochi/tsybulevi/tsybulevi.jpg"
       width="80"
       height="80"
       :placeholder="[8, 8]"

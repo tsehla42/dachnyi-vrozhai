@@ -4,14 +4,12 @@
     "sectionName": "dobryva",
     "label": "Макроелементи",
     "to": "/dobryva/makroelementy",
-    "pictureSrc": "/images/fallback/fallback-200x200.jpg",
     "articles": [
       {
         "categoryName": "makroelementy",
         "sectionName": "dobryva",
         "label": "Азот",
         "to": "/dobryva/makroelementy/azot",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "azot"
       },
       {
@@ -19,7 +17,6 @@
         "sectionName": "dobryva",
         "label": "Фосфор",
         "to": "/dobryva/makroelementy/fosfor",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "fosfor"
       },
       {
@@ -27,7 +24,6 @@
         "sectionName": "dobryva",
         "label": "Калій",
         "to": "/dobryva/makroelementy/kalii",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "kalii"
       },
       {
@@ -35,7 +31,6 @@
         "sectionName": "dobryva",
         "label": "Магній",
         "to": "/dobryva/makroelementy/mahnii",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "mahnii"
       },
       {
@@ -43,7 +38,6 @@
         "sectionName": "dobryva",
         "label": "Залізо",
         "to": "/dobryva/makroelementy/zalizo",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "zalizo"
       },
       {
@@ -51,7 +45,6 @@
         "sectionName": "dobryva",
         "label": "Сірка",
         "to": "/dobryva/makroelementy/sirka",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "sirka"
       }
     ]
@@ -61,14 +54,12 @@
     "sectionName": "dobryva",
     "label": "Мікроелементи",
     "to": "/dobryva/mikroelementy",
-    "pictureSrc": "/images/fallback/fallback-200x200.jpg",
     "articles": [
       {
         "categoryName": "mikroelementy",
         "sectionName": "dobryva",
         "label": "Бор",
         "to": "/dobryva/mikroelementy/bor",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "bor"
       },
       {
@@ -76,7 +67,6 @@
         "sectionName": "dobryva",
         "label": "Марганець",
         "to": "/dobryva/mikroelementy/marhanets",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "marhanets"
       },
       {
@@ -84,7 +74,6 @@
         "sectionName": "dobryva",
         "label": "Мідь",
         "to": "/dobryva/mikroelementy/mid",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "mid"
       },
       {
@@ -92,7 +81,6 @@
         "sectionName": "dobryva",
         "label": "Молібден",
         "to": "/dobryva/mikroelementy/molibden",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "molibden"
       },
       {
@@ -100,7 +88,6 @@
         "sectionName": "dobryva",
         "label": "Цинк",
         "to": "/dobryva/mikroelementy/tsynk",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "tsynk"
       },
       {
@@ -108,7 +95,6 @@
         "sectionName": "dobryva",
         "label": "Хлор",
         "to": "/dobryva/mikroelementy/khlor",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "khlor"
       }
     ]
@@ -118,14 +104,12 @@
     "sectionName": "dobryva",
     "label": "Органічні добрива",
     "to": "/dobryva/orhanichni-dobryva",
-    "pictureSrc": "/images/fallback/fallback-200x200.jpg",
     "articles": [
       {
         "categoryName": "orhanichni-dobryva",
         "sectionName": "dobryva",
         "label": "Гній",
         "to": "/dobryva/orhanichni-dobryva/hnii",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "hnii"
       },
       {
@@ -133,7 +117,6 @@
         "sectionName": "dobryva",
         "label": "Гнойова жижа",
         "to": "/dobryva/orhanichni-dobryva/hnoiova-zhyzha",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "hnoiova-zhyzha"
       },
       {
@@ -141,7 +124,6 @@
         "sectionName": "dobryva",
         "label": "Пташиний послід",
         "to": "/dobryva/orhanichni-dobryva/ptashynyi-poslid",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "ptashynyi-poslid"
       },
       {
@@ -149,7 +131,6 @@
         "sectionName": "dobryva",
         "label": "Торф та компости",
         "to": "/dobryva/orhanichni-dobryva/torf-ta-komposty",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "torf-ta-komposty"
       },
       {
@@ -157,7 +138,6 @@
         "sectionName": "dobryva",
         "label": "Сидеральні добрива",
         "to": "/dobryva/orhanichni-dobryva/syderalni-dobryva",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "syderalni-dobryva"
       },
       {
@@ -165,7 +145,6 @@
         "sectionName": "dobryva",
         "label": "Біогумус (вермікомпост)",
         "to": "/dobryva/orhanichni-dobryva/biohumus-vermikompost",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "biohumus-vermikompost"
       }
     ]
@@ -175,14 +154,12 @@
     "sectionName": "dobryva",
     "label": "Мінеральні добрива",
     "to": "/dobryva/mineralni-dobryva",
-    "pictureSrc": "/images/fallback/fallback-200x200.jpg",
     "articles": [
       {
         "categoryName": "mineralni-dobryva",
         "sectionName": "dobryva",
         "label": "Азотні",
         "to": "/dobryva/mineralni-dobryva/azotni",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "azotni"
       },
       {
@@ -190,7 +167,6 @@
         "sectionName": "dobryva",
         "label": "Фосфорні",
         "to": "/dobryva/mineralni-dobryva/fosforni",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "fosforni"
       },
       {
@@ -198,7 +174,6 @@
         "sectionName": "dobryva",
         "label": "Калійні",
         "to": "/dobryva/mineralni-dobryva/kaliini",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "kaliini"
       },
       {
@@ -206,7 +181,6 @@
         "sectionName": "dobryva",
         "label": "Комплексні добрива",
         "to": "/dobryva/mineralni-dobryva/kompleksni-dobryva",
-        "pictureSrc": "/images/fallback/fallback-200x200.jpg",
         "articleName": "kompleksni-dobryva"
       }
     ]

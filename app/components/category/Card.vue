@@ -14,7 +14,12 @@ defineProps({
   },
 });
 
-// console.log('card, delayed hydration', Date.now());
+
+const onImageError = (e: string | Event) => {
+  if (e instanceof Event) {
+    (e.target as HTMLImageElement).src = '/images/fallback/fallback-200x200.jpg';
+  }
+};
 </script>
 
 <template>
@@ -30,6 +35,7 @@ defineProps({
     <NuxtImg
       class="picture w-full max-w-40 sm:max-w-52 aspect-square object-cover saturate-[70%] brightness-90 group-hover:saturate-100 group-hover:brightness-100 transition-all rounded-md border-4 border-solid border-black"
       :src="pictureSrc"
+      @error="onImageError"
       width="200"
       height="200"
       loading="lazy"

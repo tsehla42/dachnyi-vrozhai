@@ -1,14 +1,12 @@
 <script setup lang="ts">
-const getPicturePath = (pictureName: string) => {
-  return `images/${pictureName}.jpg`;
-};
+const getPicturePath = (pictureName: string) => `/images/${pictureName}.jpg`;
 
 const slides = [
   {
     to: '/test',
     heading: 'Вирощування полуниці',
     text: 'Поради та інструкції',
-    picture: 'polunytsia',
+    picture: 'ovochi/yahidni-roslyny/polunytsia',
     meta: '1', // todo: investigate data attributes SEO
   },
   {

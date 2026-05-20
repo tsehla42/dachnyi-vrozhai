@@ -1,51 +1,19 @@
-import fs from 'fs';
-import path from 'path';
+export const getCategoryImageSrc = (
+  sectionName: string,
+  categoryName: string,
+): string => `/images/${sectionName}/${categoryName}/${categoryName}.jpg`;
 
-const getAllImagesInDirectory = (directoryPath: string, images: string[] = []) => {
-  const files = fs.readdirSync(directoryPath);
+export const getArticleImageSrc = (
+  sectionName: string,
+  categoryName: string,
+  articleName: string,
+): string => `/images/${sectionName}/${categoryName}/${articleName}.jpg`;
 
-  files.forEach((file) => {
-    const filePath = path.join(directoryPath, file);
-    const fileStats = fs.statSync(filePath);
-
-    if (fileStats.isDirectory()) {
-      // If it's a directory, recursively call the function
-      getAllImagesInDirectory(filePath, images);
-    } else {
-      // If it's a file, check if it's an image file
-      if (isImageFile(filePath)) {
-        images.push(file);
-      }
-    }
-  });
-
-  return images;
-};
-
-const isImageFile = (filePath: string) => {
-  const imageExtensions = ['.jpg', '.jpeg', '.png'];
-  const extname = path.extname(filePath).toLowerCase();
-  return imageExtensions.includes(extname);
-};
-
-export const getAllImagesOnServer = (directoryPath = 'public/images') => {
-  return getAllImagesInDirectory(directoryPath);
-};
-
-export const getImageSrcForCategory = (categoryNameUkr: string, isCategory: boolean, images: string[]) => {
-  const pictureName = categoryNameUkr.toLowerCase().split(' ').join('-');
-  const pictureNameWithExtension = `${pictureName}.jpg`;
-  const doesImageExist = images.includes(pictureNameWithExtension);
-  const { pictureSrc, fallbackPictureSrc } = createPictureSrc(pictureNameWithExtension, isCategory);
-
-  return doesImageExist ? pictureSrc : fallbackPictureSrc;
-};
-
-const createPictureSrc = (pictureNameWithExtension: string, isCategory: boolean) => {
-  const basePath = '/images';
-  const pathPrefix = isCategory ? 'categories' : 'articles/preview';
-  const fallbackPictureSrc = '/images/fallback/fallback-200x200.jpg';
-  const pictureSrc = `${basePath}/${pathPrefix}/${pictureNameWithExtension}`;
-
-  return { pictureSrc, fallbackPictureSrc };
-};
+export const getImageSrc = (item: {
+  sectionName: string;
+  categoryName: string;
+  articleName?: string;
+}): string =>
+  item.articleName
+    ? getArticleImageSrc(item.sectionName, item.categoryName, item.articleName)
+    : getCategoryImageSrc(item.sectionName, item.categoryName);
