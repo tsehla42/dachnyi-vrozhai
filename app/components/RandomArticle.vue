@@ -1,31 +1,44 @@
 <script setup lang="ts">
-const items = [
-  { id: 0, articleLabel: 'Капустяні', to: '/test', picturePath: '/images/ovochi/kapustiani/kapustiani.jpg' },
-  { id: 1, articleLabel: 'Бобові', to: '/test', picturePath: '/images/ovochi/bobovi/bobovi.jpg' },
-  { id: 2, articleLabel: 'Бульбоплоди', to: '/test', picturePath: '/images/ovochi/bulboplody/bulboplody.jpg' },
-  { id: 3, articleLabel: 'Коренеплоди', to: '/test', picturePath: '/images/ovochi/koreneplody/koreneplody.jpg' },
-  { id: 4, articleLabel: 'Пасльонові', to: '/test', picturePath: '/images/ovochi/paslionovi/paslionovi.jpg' },
-  {
-    id: 5,
-    articleLabel: 'Пряно смакові рослини',
-    to: '/test',
-    picturePath: '/images/ovochi/priano-smakovi-roslyny/priano-smakovi-roslyny.jpg',
-  },
-  { id: 6, articleLabel: 'Розсада', to: '/test', picturePath: '/images/ovochi/vyroschuvannia-rozsady/vyroschuvannia-rozsady.jpg' },
-  { id: 7, articleLabel: 'Салатні', to: '/test', picturePath: '/images/ovochi/salatni/salatni.jpg' },
-  { id: 8, articleLabel: 'Цибулеві', to: '/test', picturePath: '/images/ovochi/tsybulevi/tsybulevi.jpg' },
-  { id: 9, articleLabel: 'Гарбузові', to: '/test', picturePath: '/images/ovochi/harbuzovi/harbuzovi.jpg' },
-  { id: 10, articleLabel: 'Ягідні', to: '/test', picturePath: '/images/ovochi/yahidni-roslyny/yahidni-roslyny.jpg' },
-  { id: 11, articleLabel: 'template-200x200', to: '/test', picturePath: '/images/fallback/fallback-200x200.jpg' },
-  { id: 12, articleLabel: 'fallback-200x200', to: '/test', picturePath: '/images/fallback/fallback-200x200.jpg' },
-  { id: 13, articleLabel: 'Капустяні 14', to: '/test', picturePath: '/images/ovochi/kapustiani/kapusta-bilokachanna.jpg' },
-  { id: 14, articleLabel: 'Капустяні 15', to: '/test', picturePath: '/images/ovochi/kapustiani/kapustiani.jpg' },
-];
+interface RandomArticleItem {
+  id: number;
+  articleLabel: string;
+  to: string;
+  picturePath: string;
+}
+
+const { getRandomInteger } = useRandom();
+const { allArticles } = useContentArticles();
+
+const buildRandomItems = (): RandomArticleItem[] => {
+  const mapped = allArticles.map((article) => ({
+    articleLabel: article.label,
+    to: article.to,
+    picturePath: `/images/${article.sectionName}/${article.categoryName}/${article.categoryName}.jpg`,
+  }));
+
+  // Fisher-Yates shuffle
+  const shuffled = [...mapped];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = getRandomInteger({ min: 0, max: i + 1 });
+    [shuffled[i], shuffled[j]] = [shuffled[j]!, shuffled[i]!];
+  }
+
+  return shuffled.slice(0, 15).map((item, index) => ({ id: index, ...item }));
+};
+
+const items = buildRandomItems();
+
+const handleImageError = (e: string | Event) => {
+  if (e instanceof Event && e.target instanceof HTMLImageElement) {
+    e.target.srcset = '';
+    e.target.src = '/images/fallback/fallback-200x200.jpg';
+  }
+};
 
 type CardRefValue<T = HTMLDivElement> = T | null;
 const highlightedCardClass = ['rounded-sm', 'shadow-[0_0_40px_16px_rgba(255,222,54,1)]', 'z-[1]'];
-const fullscreenCardClass = ['absolute', 'z-[5]', 'duration-1000'];
 const background = ref<CardRefValue>(null);
+const containerRef = ref<HTMLDivElement | null>(null);
 const articleLabel = ref<CardRefValue<HTMLHeadingElement>>(null);
 const cardsRefs = ref<Array<CardRefValue>>([]);
 
@@ -33,8 +46,8 @@ const functionRef = (el: CardRefValue, index: number) => {
   cardsRefs.value[index] = el;
 };
 
-const { getRandomInteger } = useRandom();
 const randomArticleId = ref<number>(0);
+const selectedLabel = ref<string | null>(null);
 const previousRandomArticleId = ref(0);
 
 const getRandomArticle = () => {
@@ -54,11 +67,26 @@ const resetAnimationPlayCount = () => {
 };
 
 const resetRandomArticleHighlighting = () => {
-  const index = previousRandomArticleId.value;
-  cardProperties.removeCardHighlighting(index);
+  for (let i = 0; i < cardsRefs.value.length; i++) {
+    cardProperties.removeCardHighlighting(i);
+  }
 };
 
 const isAnimationInProgress = ref(false);
+const animationTimeouts = ref<ReturnType<typeof setTimeout>[]>([]);
+const animationIntervals = ref<ReturnType<typeof setInterval>[]>([]);
+
+const clearAnimationTimeouts = () => {
+  animationTimeouts.value.forEach(clearTimeout);
+  animationTimeouts.value = [];
+  animationIntervals.value.forEach(clearInterval);
+  animationIntervals.value = [];
+};
+
+onUnmounted(() => {
+  clearAnimationTimeouts();
+});
+
 const animationPlayCount = ref(0);
 const maxAnimationPlays = ref(getRandomInteger({ min: 1, max: 4 }));
 const isLastAnimationPlay = computed(() => animationPlayCount.value === maxAnimationPlays.value);
@@ -81,32 +109,65 @@ const cardProperties = {
 
   scaleSelectedCard: () => {
     cardProperties.updateCardClasses(randomArticleId.value, {
-      add: ['scale-[200%]', 'border-none'],
+      add: ['scale-[120%]', 'border-none'],
       remove: ['overflow-hidden'],
     });
   },
   unscaleSelectedCard: () => {
     cardProperties.updateCardClasses(previousRandomArticleId.value, {
       add: ['overflow-hidden'],
-      remove: ['scale-[200%]', 'border-none'],
+      remove: ['scale-[120%]', 'border-none'],
     });
-  },
-  resetScaleSelectedCard: () => {
-    cardProperties.updateCardClasses(randomArticleId.value, { remove: ['scale-[200%]'] });
-  },
-
-  setCardBlur: () => {
-    cardProperties.updateCardClasses(randomArticleId.value, { add: ['blur-sm'] });
   },
   resetCardBlur: () => {
     cardProperties.updateCardClasses(previousRandomArticleId.value, { remove: ['blur-sm'] });
   },
 
-  setSelectedCardFullscreen: () => {
-    cardProperties.updateCardClasses(randomArticleId.value, { add: fullscreenCardClass });
+  expandCardToFullscreen: () => {
+    const card = cardsRefs.value[randomArticleId.value];
+    const container = containerRef.value;
+    if (!card || !container) return;
+
+    // Read visual rect while scale-[120%] is applied
+    const cardRect = card.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const top = cardRect.top - containerRect.top;
+    const left = cardRect.left - containerRect.left;
+    const width = cardRect.width;
+    const height = cardRect.height;
+
+    // Remove scale transform, restore overflow, place absolutely at same visual position
+    card.classList.remove('scale-[120%]', 'border-none');
+    card.classList.add('overflow-hidden');
+    card.style.position = 'absolute';
+    card.style.top = `${top}px`;
+    card.style.left = `${left}px`;
+    card.style.width = `${width}px`;
+    card.style.height = `${height}px`;
+    card.style.zIndex = '5';
+    card.style.transition = 'none';
+
+    // Force reflow to commit current position
+    void card.getBoundingClientRect();
+
+    // Animate to fullscreen
+    card.style.transition = 'top 0.6s ease, left 0.6s ease, width 0.6s ease, height 0.6s ease';
+    card.style.top = '0';
+    card.style.left = '0';
+    card.style.width = '100%';
+    card.style.height = '100%';
   },
-  unsetSelectedCardFullscreen: () => {
-    cardProperties.updateCardClasses(previousRandomArticleId.value, { remove: fullscreenCardClass });
+
+  clearCardInlineStyles: (index: number) => {
+    const card = cardsRefs.value[index];
+    if (!card) return;
+    card.style.position = '';
+    card.style.top = '';
+    card.style.left = '';
+    card.style.width = '';
+    card.style.height = '';
+    card.style.zIndex = '';
+    card.style.transition = '';
   },
 };
 
@@ -117,16 +178,8 @@ const backgroundProperties = {
   showBackground: () => {
     if (background.value) background.value.style.opacity = '';
   },
-  darkenBackground: () => {
-    if (background.value) {
-      background.value.classList.add('z-[4]');
-      background.value.classList.remove('group-hover:opacity-0');
-      background.value.style.opacity = '1';
-    }
-  },
   resetDarkBackground: () => {
     if (background.value) {
-      background.value.classList.remove('z-[4]');
       background.value.classList.add('group-hover:opacity-0');
       background.value.style.opacity = '';
     }
@@ -138,17 +191,10 @@ const articleProperties = {
     previousRandomArticleId.value = randomArticleId.value;
   },
   setNewRandomArticleId: () => {
-    randomArticleId.value = getRandomInteger();
+    randomArticleId.value = getRandomInteger({ min: 0, max: items.length });
   },
   hideArticleName: () => {
     articleLabel.value?.classList.add('opacity-0');
-  },
-  setRandomArticleName: () => {
-    if (articleLabel.value) {
-      articleLabel.value.classList.add('z-[6]');
-      articleLabel.value.classList.remove('opacity-0');
-      articleLabel.value.textContent = String(items[randomArticleId.value]!.articleLabel);
-    }
   },
 };
 
@@ -182,38 +228,52 @@ const animateCards = () => {
     }
   }, animationDuration);
 
+  animationIntervals.value.push(interval);
+
   if (animationPlayCount.value < maxAnimationPlays.value) {
     animationPlayCount.value += 1;
     timeout = setTimeout(() => {
       animateCards();
     }, totalDuration);
+    animationTimeouts.value.push(timeout);
   }
 };
 
 const animateSelectedCard = () => {
-  setTimeout(() => backgroundProperties.showBackground(), 200);
-  setTimeout(() => cardProperties.scaleSelectedCard(), 800);
-  setTimeout(() => backgroundProperties.darkenBackground(), 1600);
-  setTimeout(() => cardProperties.setCardBlur(), 2000);
-  setTimeout(() => {
-    cardProperties.setSelectedCardFullscreen();
-    articleProperties.setRandomArticleName();
-  }, 2200);
-  setTimeout(() => cardProperties.resetScaleSelectedCard(), 2400);
+  isAnimationInProgress.value = true;
+  const targetId = randomArticleId.value;
+  const targetItem = items[targetId]!;
+  const t1 = setTimeout(() => backgroundProperties.showBackground(), 200);
+  const t2 = setTimeout(() => cardProperties.scaleSelectedCard(), 800);
+  const t3 = setTimeout(() => cardProperties.expandCardToFullscreen(), 1600);
+  const t4 = setTimeout(() => {
+    if (articleLabel.value) {
+      articleLabel.value.classList.add('z-[6]');
+      articleLabel.value.classList.remove('opacity-0');
+    }
+    selectedLabel.value = targetItem.articleLabel;
+  }, 2400);
+  const t5 = setTimeout(() => {
+    isAnimationInProgress.value = false;
+    navigateTo(targetItem.to);
+  }, 3400);
+  animationTimeouts.value.push(t1, t2, t3, t4, t5);
 };
 
 const resetAllToDefaultState = () => {
+  clearAnimationTimeouts();
   resetAnimationPlayCount();
   resetRandomArticleHighlighting();
   cardProperties.unscaleSelectedCard();
-  cardProperties.unsetSelectedCardFullscreen();
-  cardProperties.resetCardBlur();
+  cardProperties.clearCardInlineStyles(previousRandomArticleId.value);
   backgroundProperties.resetDarkBackground();
+  selectedLabel.value = null;
 };
 </script>
 
 <template>
   <div
+    ref="containerRef"
     class="group relative my-10 border-3 border-black rounded-2xl overflow-hidden cursor-pointer bg-black"
     @click="getRandomArticle"
   >
@@ -225,14 +285,13 @@ const resetAllToDefaultState = () => {
       ref="articleLabel"
       class="absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max p-3 text-center text-5xl bg-gray-100/28 backdrop-blur-xs rounded-lg transition duration-1000"
     >
-      Випадкова стаття {{ randomArticleId }}
+      {{ selectedLabel ?? 'Випадкова стаття ' + randomArticleId }}
     </h3>
     <article class="grid grid-cols-5">
       <div
         v-for="(item, index) in items"
         :key="item.id"
         :ref="(el) => functionRef(el as HTMLDivElement | null, index)"
-        :class="{ [index]: true, [`id${item.id}`]: true }"
         class="image-container relative w-full h-32 border border-black overflow-hidden transition duration-200"
       >
         <NuxtImg
@@ -241,7 +300,7 @@ const resetAllToDefaultState = () => {
           width="300"
           height="300"
           lazy
-          @error="(args) => console.log(args)"
+          @error="handleImageError"
         />
       </div>
     </article>
