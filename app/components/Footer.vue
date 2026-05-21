@@ -8,7 +8,7 @@ const footerLinks = [
     label: 'Головна',
   },
   {
-    to: '/test',
+    to: '/sitemap',
     label: 'Мапа сайту',
   },
 ];

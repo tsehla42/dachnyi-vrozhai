@@ -60,6 +60,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/eslint',
     '@pinia/nuxt',
+    '@nuxtjs/sitemap',
   ],
 
   experimental: {
@@ -68,6 +69,10 @@ export default defineNuxtConfig({
         prefetch: false,
       },
     },
+  },
+
+  site: {
+    url: 'https://dachnyi-vrozhai.com.ua',
   },
 
   compatibilityDate: '2025-05-24',
