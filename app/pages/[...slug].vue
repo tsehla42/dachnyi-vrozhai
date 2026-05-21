@@ -42,7 +42,9 @@ const sectionKey = computed(() => {
           />
         </div>
       </template>
-      <RandomArticle />
+      <ClientOnly>
+        <RandomArticle />
+      </ClientOnly>
     </div>
     <NotFoundContent v-else />
   </div>

@@ -33,7 +33,9 @@
     <h2 class="text-center mt-10 mb-4">Статті та поради</h2>
     <AdvicesList />
 
-    <RandomArticle />
+    <ClientOnly>
+      <RandomArticle />
+    </ClientOnly>
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consectetur consequatur corporis deserunt

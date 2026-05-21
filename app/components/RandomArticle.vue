@@ -51,15 +51,14 @@ const selectedLabel = ref<string | null>(null);
 const previousRandomArticleId = ref(0);
 
 const getRandomArticle = () => {
+  if (isAnimationInProgress.value) return;
+
   backgroundProperties.hideBackground();
   articleProperties.setPreviousRandomArticleId();
   articleProperties.setNewRandomArticleId();
   articleProperties.hideArticleName();
-
-  if (!isAnimationInProgress.value) {
-    resetAllToDefaultState();
-    animateCards();
-  }
+  resetAllToDefaultState();
+  animateCards();
 };
 
 const resetAnimationPlayCount = () => {
@@ -275,6 +274,7 @@ const resetAllToDefaultState = () => {
   <div
     ref="containerRef"
     class="group relative my-10 border-3 border-black rounded-2xl overflow-hidden cursor-pointer bg-black"
+    :class="{ 'pointer-events-none': isAnimationInProgress }"
     @click="getRandomArticle"
   >
     <div
