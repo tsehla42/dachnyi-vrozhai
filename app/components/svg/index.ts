@@ -10,4 +10,5 @@ export { default as SvgIconLogoLettersDV } from './IconLogoLettersDV.vue';
 export { default as SvgIconLogoVrozhai } from './IconLogoVrozhai.vue';
 export { default as SvgIconVerticalCarrotBig } from './IconVerticalCarrotBig.vue';
 export { default as SvgIconVerticalCarrotSmall } from './IconVerticalCarrotSmall.vue';
+export { default as SvgIconStrawberry } from './IconStrawberry.vue';
 
