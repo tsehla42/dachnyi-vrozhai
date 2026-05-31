@@ -14,15 +14,29 @@ defineProps({
   },
 });
 
+const imgRef = ref<ComponentPublicInstance | null>(null);
+
+const applyFallback = (img: HTMLImageElement) => {
+  img.srcset = '';
+  img.src = '/images/fallback/fallback-200x200.jpg';
+};
 
 const onImageError = (e: string | Event) => {
   if (!(e instanceof Event)) return;
   const img = e.target as HTMLImageElement | null;
   if (!img) return;
-  if (img.src.includes('fallback')) return; 
-  img.srcset = '';
-  img.src = '/images/fallback/fallback-200x200.jpg';
+  if (img.src.includes('fallback')) return;
+  applyFallback(img);
 };
+
+// SSR hydration race: the browser may fire the error event before Vue attaches
+// @error listeners. Check on mount for images that already failed to load.
+onMounted(() => {
+  const img = imgRef.value?.$el as HTMLImageElement | undefined;
+  if (img?.complete && img.naturalWidth === 0) {
+    applyFallback(img);
+  }
+});
 </script>
 
 <template>
@@ -36,6 +50,7 @@ const onImageError = (e: string | Event) => {
       {{ label }}
     </h3>
     <NuxtImg
+      ref="imgRef"
       class="picture w-full max-w-40 sm:max-w-52 aspect-square object-cover saturate-[70%] brightness-90 group-hover:saturate-100 group-hover:brightness-100 transition-all rounded-md border-4 border-solid border-black"
       :src="pictureSrc"
       @error="onImageError"
