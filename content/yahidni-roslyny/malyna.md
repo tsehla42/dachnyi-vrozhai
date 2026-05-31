@@ -2,8 +2,8 @@
 title: "Малина"
 description: 'meta опис сторінки'
 
-section: 'ovochi'
-category: 'yahidni-roslyny'
+section: 'yahidni-roslyny'
+category: 'malyna'
 article: 'malyna'
 ---
 

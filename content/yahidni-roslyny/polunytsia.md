@@ -2,8 +2,8 @@
 title: "Полуниця"
 description: 'meta опис сторінки'
 
-section: 'ovochi'
-category: 'yahidni-roslyny'
+section: 'yahidni-roslyny'
+category: 'polunytsia'
 article: 'polunytsia'
 ---
 

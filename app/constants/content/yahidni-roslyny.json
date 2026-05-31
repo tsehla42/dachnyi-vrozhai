@@ -1,0 +1,58 @@
+[
+  {
+    "categoryName": "polunytsia",
+    "sectionName": "yahidniRoslyny",
+    "label": "Полуниця",
+    "to": "/yahidni-roslyny/polunytsia",
+    "articles": []
+  },
+  {
+    "categoryName": "polunytsia-remontantna",
+    "sectionName": "yahidniRoslyny",
+    "label": "Полуниця ремонтантна",
+    "to": "/yahidni-roslyny/polunytsia-remontantna",
+    "articles": []
+  },
+  {
+    "categoryName": "kucheriava-polunytsia",
+    "sectionName": "yahidniRoslyny",
+    "label": "Кучерява полуниця",
+    "to": "/yahidni-roslyny/kucheriava-polunytsia",
+    "articles": []
+  },
+  {
+    "categoryName": "polunytsia-iz-nasinnia",
+    "sectionName": "yahidniRoslyny",
+    "label": "Полуниця із насіння",
+    "to": "/yahidni-roslyny/polunytsia-iz-nasinnia",
+    "articles": []
+  },
+  {
+    "categoryName": "malyna",
+    "sectionName": "yahidniRoslyny",
+    "label": "Малина",
+    "to": "/yahidni-roslyny/malyna",
+    "articles": []
+  },
+  {
+    "categoryName": "malyna-iz-nasinnia",
+    "sectionName": "yahidniRoslyny",
+    "label": "Малина із насіння",
+    "to": "/yahidni-roslyny/malyna-iz-nasinnia",
+    "articles": []
+  },
+  {
+    "categoryName": "agrus",
+    "sectionName": "yahidniRoslyny",
+    "label": "Аґрус",
+    "to": "/yahidni-roslyny/agrus",
+    "articles": []
+  },
+  {
+    "categoryName": "smorodyna",
+    "sectionName": "yahidniRoslyny",
+    "label": "Смородина",
+    "to": "/yahidni-roslyny/smorodyna",
+    "articles": []
+  }
+]

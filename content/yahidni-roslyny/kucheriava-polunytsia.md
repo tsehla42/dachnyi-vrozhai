@@ -2,8 +2,8 @@
 title: "Кучерява полуниця"
 description: 'meta опис сторінки'
 
-section: 'ovochi'
-category: 'yahidni-roslyny'
+section: 'yahidni-roslyny'
+category: 'kucheriava-polunytsia'
 article: 'kucheriava-polunytsia'
 ---
 

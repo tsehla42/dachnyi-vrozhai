@@ -2,8 +2,8 @@
 title: "Полуниця ремонтантна"
 description: 'meta опис сторінки'
 
-section: 'ovochi'
-category: 'yahidni-roslyny'
+section: 'yahidni-roslyny'
+category: 'polunytsia-remontantna'
 article: 'polunytsia-remontantna'
 ---
 

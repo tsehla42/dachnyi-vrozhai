@@ -2,8 +2,8 @@
 title: "Смородина"
 description: 'meta опис сторінки'
 
-section: 'ovochi'
-category: 'yahidni-roslyny'
+section: 'yahidni-roslyny'
+category: 'smorodyna'
 article: 'smorodyna'
 ---
 

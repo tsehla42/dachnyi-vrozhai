@@ -56,7 +56,7 @@ const accordionUi = {
         </template>
 
         <template #body="{ item }">
-          <CategoryList :section-name="item.sectionName" />
+          <ItemList :section-name="item.sectionName" />
         </template>
       </UAccordion>
       <template #fallback>

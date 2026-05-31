@@ -112,7 +112,7 @@ const dropdownUi = {
 
   span {
     font-family: $font-family-primary;
-    font-size: clamp(1.375rem, 1.15rem + 0.4vw, 1.625rem);
+    font-size: clamp(1rem, 0.9rem + 0.4vw, 1.488rem);
   }
 }
 

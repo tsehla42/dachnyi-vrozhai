@@ -2,8 +2,8 @@
 title: "Аґрус"
 description: 'meta опис сторінки'
 
-section: 'ovochi'
-category: 'yahidni-roslyny'
+section: 'yahidni-roslyny'
+category: 'agrus'
 article: 'agrus'
 ---
 

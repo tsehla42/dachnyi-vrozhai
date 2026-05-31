@@ -9,6 +9,7 @@ import inventarData from '~/constants/content/inventar.json';
 import kvityData from '~/constants/content/kvity.json';
 import ovochiData from '~/constants/content/ovochi.json';
 import shkidnykyData from '~/constants/content/shkidnyky-i-khvoroby.json';
+import yahidniRoslynyData from '~/constants/content/yahidni-roslyny.json';
 
 const sectionsDataMap: Record<string, any[]> = {
   dobryva: dobryvaData,
@@ -16,6 +17,7 @@ const sectionsDataMap: Record<string, any[]> = {
   kvity: kvityData,
   ovochi: ovochiData,
   'shkidnyky-i-khvoroby': shkidnykyData,
+  'yahidni-roslyny': yahidniRoslynyData,
 };
 
 export default function useSections() {

@@ -18,9 +18,9 @@ export default defineNuxtConfig({
     preset: 'static',
     static: true,
     prerender: {
-      // Seed the crawler with the 5 section index pages.
-      // From each section page the category cards link onwards to category and article pages.
-      routes: ['/ovochi', '/kvity', '/dobryva', '/inventar', '/shkidnyky-i-khvoroby'],
+      // Seed the crawler with the section index pages.
+      // From each section page the item cards link onwards to category and article pages.
+      routes: ['/ovochi', '/yahidni-roslyny', '/kvity', '/dobryva', '/inventar', '/shkidnyky-i-khvoroby'],
     },
   },
 

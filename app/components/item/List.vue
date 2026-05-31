@@ -38,7 +38,7 @@ watchEffect(() => {
     v-if="sectionName"
     class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-3 sm:gap-5"
   >
-    <CategoryCard
+    <ItemCard
       v-for="c in categoriesToDisplay"
       :key="c.label"
       :label="c.label"

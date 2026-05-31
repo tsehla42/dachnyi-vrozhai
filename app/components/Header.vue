@@ -78,6 +78,12 @@ header {
     top: 0;
     height: 52px;
     display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .link {

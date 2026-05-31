@@ -16,7 +16,7 @@ const { data: doc } = await useAsyncData<PageDoc | null>(`content-${route.path}`
 });
 
 // Map frontmatter section value (may be kebab-case, e.g. 'shkidnyky-i-khvoroby')
-// to the SectionsEnum key that CategoryList expects (e.g. 'shkidnykyIKhvoroby').
+// to the SectionsEnum key that ItemList expects (e.g. 'shkidnykyIKhvoroby').
 const sectionKey = computed(() => {
   const s = doc.value?.section;
   if (!s) return undefined;
@@ -31,11 +31,11 @@ const sectionKey = computed(() => {
       <ContentRenderer :value="doc" />
       <template v-if="sectionKey && !doc.article">
         <div class="my-8">
-          <CategoryList
+          <ItemList
             v-if="!doc.category"
             :section-name="sectionKey"
           />
-          <CategoryList
+          <ItemList
             v-else
             :section-name="sectionKey"
             :category-name="doc.category"

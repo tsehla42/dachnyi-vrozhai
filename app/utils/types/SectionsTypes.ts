@@ -8,6 +8,7 @@ export interface SectionsMapUA<T> extends Record<SectionNamesMapValues, T> {}
 
 export enum SectionsEnum {
   ovochi = 'Овочі',
+  yahidniRoslyny = 'Ягідні рослини',
   kvity = 'Квіти',
   shkidnykyIKhvoroby = 'Шкідники і хвороби',
   dobryva = 'Добрива',
@@ -16,6 +17,7 @@ export enum SectionsEnum {
 
 export const SectionsNamesMap = {
   ovochi: SectionsEnum.ovochi,
+  yahidniRoslyny: SectionsEnum.yahidniRoslyny,
   kvity: SectionsEnum.kvity,
   shkidnykyIKhvoroby: SectionsEnum.shkidnykyIKhvoroby,
   dobryva: SectionsEnum.dobryva,

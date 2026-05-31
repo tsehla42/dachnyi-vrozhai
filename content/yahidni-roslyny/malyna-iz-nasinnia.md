@@ -2,8 +2,8 @@
 title: "Малина із насіння"
 description: 'meta опис сторінки'
 
-section: 'ovochi'
-category: 'yahidni-roslyny'
+section: 'yahidni-roslyny'
+category: 'malyna-iz-nasinnia'
 article: 'malyna-iz-nasinnia'
 ---
 
