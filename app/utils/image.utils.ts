@@ -24,3 +24,8 @@ export const getImageSrc = (
   item.articleName
     ? getArticleImageSrc(item.sectionName, item.categoryName, item.articleName, ext)
     : getCategoryImageSrc(item.sectionName, item.categoryName, ext);
+
+export const getSectionImageSrc = (
+  sectionName: string,
+  ext: ImageExt = 'jpg',
+): string => `/images/${sectionName}/${sectionName}.${ext}`;
