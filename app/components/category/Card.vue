@@ -17,7 +17,8 @@ defineProps({
 
 const onImageError = (e: string | Event) => {
   if (!(e instanceof Event)) return;
-  const img = e.target as HTMLImageElement;
+  const img = e.target as HTMLImageElement | null;
+  if (!img) return;
   if (img.src.includes('fallback')) return; 
   img.srcset = '';
   img.src = '/images/fallback/fallback-200x200.jpg';

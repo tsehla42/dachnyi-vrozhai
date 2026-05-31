@@ -53,7 +53,7 @@ const dropdownUi = {
     'category-dropdown-container w-fit min-w-(--reka-dropdown-menu-trigger-width) pt-3 pr-3 z-[100] shadow-none ring-0 bg-transparent data-[state=closed]:animate-none data-[side=right]:pt-[3px]',
   viewport: 'category-dropdown-viewport flex flex-col gap-2',
   group: 'category-dropdown-group flex flex-col gap-1 p-0',
-  item: 'category-link-wrapper pl-2 font-primary text-left text-lg',
+  item: 'category-link-wrapper pl-2 font-primary text-left text-lg bg-green-400 border-3 border-green-800 transition-all duration-100 first-of-type:rounded-tr-[18px] last-of-type:rounded-b-[18px] hover:bg-orange-300 hover:border-orange-900 has-[.active]:bg-orange-400 has-[.active]:border-orange-700 [&_a]:w-full',
   itemWrapper: 'justify-start',
 };
 </script>
@@ -117,13 +117,8 @@ const dropdownUi = {
 }
 
 .category-dropdown-container {
-  .category-link-wrapper {
-    * {
-      font-family: $font-family-primary;
-      font-size: inherit;
-    }
-
-    @include section-category-dropdown-link;
+  .category-link-wrapper * {
+    font-family: $font-family-primary;
   }
 }
 </style>
