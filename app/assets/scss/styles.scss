@@ -3,51 +3,49 @@ styles.scss serves for styling content globally
 Also can use variables
 */
 
-@use "styles/style-reset";
-@use "abstracts/fonts";
-@use "abstracts/colors";
 @use "abstracts/mixins";
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: fonts.$font-family-primary;
-  background: colors.$orange-100;
-  @include mixins.custom-scrollbar()
-}
-
-page {
-  & > h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: fonts.$font-family-primary;
-    font-weight: 400;
-    text-transform: uppercase;
+@layer base {
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    background: var(--color-orange-50);
+    @include mixins.custom-scrollbar()
   }
-}
 
-h1 {
-  font-size: 2.5em;
-}
+  page {
+    & > h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-primary);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
 
-h2 {
-  font-size: 2em;
-}
+  h1 {
+    font-size: 2.5em;
+  }
 
-a {
-  text-decoration: none;
-}
+  h2 {
+    font-size: 2em;
+  }
 
-p,
-span,
-a {
-  font-family: fonts.$font-family-secondary;
-  //word-break: break-all;
-}
+  a {
+    text-decoration: none;
+  }
 
-.page > p {
-  margin: 1em 0;
+  p,
+  span,
+  a {
+    font-family: var(--font-secondary);
+  }
+
+  .page > p {
+    margin: 1em 0;
+  }
 }

@@ -42,7 +42,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "@/assets/scss/abstracts/colors" as *; @use "@/assets/scss/abstracts/fonts" as *; @use "@/assets/scss/abstracts/mixins" as *;`,
+          additionalData: `@use "@/assets/scss/abstracts/mixins" as *;`,
         },
       },
     },

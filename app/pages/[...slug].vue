@@ -45,13 +45,28 @@ const sectionCategoryImageSrc = computed<string | null>(() => {
 });
 
 const fallbackSrc = '/images/fallback/fallback-200x200.jpg';
+const heroImgRef = ref<ComponentPublicInstance | null>(null);
+const isHeroFallback = ref(false);
+
+const applyHeroFallback = (img: HTMLImageElement) => {
+  isHeroFallback.value = true;
+  img.srcset = '';
+  img.src = fallbackSrc;
+};
 
 const onHeroImageError = (e: string | Event) => {
   if (!(e instanceof Event)) return;
   const img = e.target as HTMLImageElement | null;
   if (!img || img.src.includes('fallback')) return;
-  img.src = fallbackSrc;
+  applyHeroFallback(img);
 };
+
+onMounted(() => {
+  const img = heroImgRef.value?.$el as HTMLImageElement | undefined;
+  if (img?.complete && img.naturalWidth === 0) {
+    applyHeroFallback(img);
+  }
+});
 </script>
 
 <template>
@@ -74,7 +89,9 @@ const onHeroImageError = (e: string | Event) => {
         <div class="section-body">
           <NuxtImg
             v-if="sectionCategoryImageSrc"
-            class="hero-image"
+            ref="heroImgRef"
+            class="float-left w-[400px] max-w-full mr-6 rounded-lg aspect-[4/3] max-sm:float-none max-sm:block max-sm:w-full max-sm:max-h-[300px] max-sm:mb-4"
+            :class="isHeroFallback ? 'object-contain bg-[#c8d979]' : 'object-cover'"
             :src="sectionCategoryImageSrc"
             width="400"
             height="300"
@@ -90,6 +107,8 @@ const onHeroImageError = (e: string | Event) => {
         <ContentRenderer :value="doc" />
       </template>
 
+      <div class="clear-both" />
+
       <ClientOnly>
         <RandomArticle />
       </ClientOnly>
@@ -100,11 +119,6 @@ const onHeroImageError = (e: string | Event) => {
 
 <style lang="scss">
 .content-page {
-  h1,
-  h2 {
-    font-family: $font-family-primary;
-  }
-
   // Section/category pages: suppress the h1 emitted by ContentRenderer
   // (we render our own explicit h1 above the item cards)
   // Note: :deep() is only valid in scoped styles — use plain descendant selector here
@@ -118,26 +132,6 @@ const onHeroImageError = (e: string | Event) => {
     content: '';
     display: table;
     clear: both;
-  }
-}
-</style>
-
-<style scoped lang="scss">
-.hero-image {
-  float: left;
-  width: 400px;
-  max-width: 100%;
-  margin: 0 24px 0 0;
-  border-radius: 0.5rem;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
-
-  @media (max-width: 767px) {
-    float: none;
-    display: block;
-    width: 100%;
-    max-height: 300px;
-    margin: 0 0 1rem 0;
   }
 }
 </style>

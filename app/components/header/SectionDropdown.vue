@@ -50,10 +50,10 @@ const sectionCategories = computed(() => {
 
 const dropdownUi = {
   content:
-    'category-dropdown-container w-fit min-w-(--reka-dropdown-menu-trigger-width) pt-3 pr-3 z-[100] shadow-none ring-0 bg-transparent data-[state=closed]:animate-none data-[side=right]:pt-[3px]',
+    'category-dropdown-container w-fit min-w-(--reka-dropdown-menu-trigger-width) pt-3 pr-3 z-[100] shadow-none ring-0 bg-transparent data-[state=closed]:animate-none data-[side=right]:pt-[3px] data-[side=left]:pt-[3px] data-[side=left]:pr-[3px]',
   viewport: 'category-dropdown-viewport flex flex-col gap-2',
   group: 'category-dropdown-group flex flex-col gap-1 p-0',
-  item: 'category-link-wrapper pl-2 font-primary text-left text-lg bg-green-400 border-3 border-green-800 transition-all duration-100 first-of-type:rounded-tr-[18px] last-of-type:rounded-b-[18px] hover:bg-orange-300 hover:border-orange-900 has-[.active]:bg-orange-400 has-[.active]:border-orange-700 [&_a]:w-full',
+  item: 'category-link-wrapper pl-2 font-primary text-left text-lg bg-green-400 border-3 border-green-800 transition-all duration-100 first-of-type:rounded-tr-[18px] last-of-type:rounded-b-[18px] hover:bg-orange-300 hover:border-orange-900 has-[.active]:bg-orange-400 has-[.active]:border-orange-700 [&_a]:w-full [&_*]:font-primary',
   itemWrapper: 'justify-start',
 };
 </script>
@@ -73,12 +73,12 @@ const dropdownUi = {
     >
       <NuxtLink
         :to="sectionTo"
-        class="activator-first-level flex items-center justify-center leading-none outline-none transition-all duration-300 rounded-b-[18px] px-3 pt-[10px] pb-1 bg-green-400 border-3 border-green-800 border-t-0"
+        class="activator-first-level flex items-center justify-center leading-none outline-none transition-all duration-300 rounded-b-[18px] px-3 pt-[10px] pb-1 bg-green-400 border-3 border-green-800 border-t-0 hover:pb-[10px] hover:bg-[#FFC793] hover:border-[#2F1701] [&.is-open]:pb-[10px] [&.is-open]:bg-[#FFC793] [&.is-open]:border-[#2F1701] [&.active]:pb-3 [&.active]:bg-[#FFA859] [&.active]:border-[#FD6B15] [&_span]:text-[clamp(1rem,0.9rem+0.4vw,1.488rem)]"
         :class="{ 'is-open': isOpen }"
         active-class="active"
         exact-active-class="exact-active"
       >
-        <span>{{ section.sectionLabel }}</span>
+        <span class="font-primary">{{ section.sectionLabel }}</span>
       </NuxtLink>
 
       <template #item="{ item }">
@@ -95,30 +95,3 @@ const dropdownUi = {
   </div>
 </template>
 
-<style lang="scss">
-.activator-first-level {
-  &:hover,
-  &.is-open {
-    padding-bottom: 10px;
-    background: $orange-300;
-    border-color: $orange-900;
-  }
-
-  &.active {
-    padding-bottom: 12px;
-    background: $orange-400;
-    border-color: $orange-focus;
-  }
-
-  span {
-    font-family: $font-family-primary;
-    font-size: clamp(1rem, 0.9rem + 0.4vw, 1.488rem);
-  }
-}
-
-.category-dropdown-container {
-  .category-link-wrapper * {
-    font-family: $font-family-primary;
-  }
-}
-</style>

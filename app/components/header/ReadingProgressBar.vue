@@ -4,18 +4,18 @@ const scrollHeight = ref(1);
 
 const onScroll = () => {
   window.requestAnimationFrame(() => {
-    scrollY.value = document.body.scrollTop;
-    scrollHeight.value = document.body.scrollHeight - document.body.clientHeight;
+    scrollY.value = window.scrollY;
+    scrollHeight.value = document.documentElement.scrollHeight - window.innerHeight;
   });
 };
 
 onMounted(() => {
-  scrollHeight.value = document.body.scrollHeight - document.body.clientHeight;
-  document.body.addEventListener('scroll', onScroll, { passive: true });
+  scrollHeight.value = document.documentElement.scrollHeight - window.innerHeight;
+  window.addEventListener('scroll', onScroll, { passive: true });
 });
 
 onUnmounted(() => {
-  document.body.removeEventListener('scroll', onScroll);
+  window.removeEventListener('scroll', onScroll);
 });
 </script>
 

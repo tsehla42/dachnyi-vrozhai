@@ -6,20 +6,37 @@ const attrs = useAttrs();
 const heroImageSrc = inject<Ref<string | null>>('heroImageSrc', ref(null));
 
 const fallbackSrc = '/images/fallback/fallback-200x200.jpg';
+const imgRef = ref<ComponentPublicInstance | null>(null);
+const isFallback = ref(false);
+
+const applyFallback = (img: HTMLImageElement) => {
+  isFallback.value = true;
+  img.srcset = '';
+  img.src = fallbackSrc;
+};
 
 const onImageError = (e: string | Event) => {
   if (!(e instanceof Event)) return;
   const img = e.target as HTMLImageElement | null;
   if (!img || img.src.includes('fallback')) return;
-  img.src = fallbackSrc;
+  applyFallback(img);
 };
+
+onMounted(() => {
+  const img = imgRef.value?.$el as HTMLImageElement | undefined;
+  if (img?.complete && img.naturalWidth === 0) {
+    applyFallback(img);
+  }
+});
 </script>
 
 <template>
-  <h1 v-bind="attrs"><slot /></h1>
+  <h1 v-bind="attrs" class="mb-4 font-primary"><slot /></h1>
   <NuxtImg
     v-if="heroImageSrc"
-    class="hero-image"
+    ref="imgRef"
+    class="float-left w-[400px] max-w-full mr-6 rounded-lg aspect-[4/3] max-sm:float-none max-sm:block max-sm:w-full max-sm:max-h-[300px] max-sm:mb-4"
+    :class="isFallback ? 'object-contain bg-[#c8d979]' : 'object-cover'"
     :src="heroImageSrc"
     width="400"
     height="300"
@@ -27,27 +44,3 @@ const onImageError = (e: string | Event) => {
     @error="onImageError"
   />
 </template>
-
-<style scoped lang="scss">
-h1 {
-  margin-bottom: 1rem;
-}
-
-.hero-image {
-  float: left;
-  width: 400px;
-  max-width: 100%;
-  margin: 0 24px 0 0;
-  border-radius: 0.5rem;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
-
-  @media (max-width: 767px) {
-    float: none;
-    display: block;
-    width: 100%;
-    max-height: 300px;
-    margin: 0 0 1rem 0;
-  }
-}
-</style>

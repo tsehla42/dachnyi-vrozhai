@@ -25,4 +25,13 @@ logs
 
 # vibecoding configs
 .github/
-docs/superpowers
+.claude/
+AGENTS.md
+
+docs/*
+!docs/README.md
+!docs/styles/
+!docs/architecture/
+!docs/components/
+!docs/content/
+!docs/patterns/

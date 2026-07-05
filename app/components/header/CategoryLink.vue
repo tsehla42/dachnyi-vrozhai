@@ -12,15 +12,15 @@ const categoryArticles = computed(() => {
 
 const dropdownUi = {
   content: 'article-dropdown-container',
-  viewport: 'article-dropdown-viewport',
+  viewport: 'article-dropdown-viewport flex flex-col gap-1',
   group: 'article-dropdown-group',
-  item: 'article-link',
+  item: 'article-link bg-green-400 border-3 border-green-800 transition-all duration-100 first-of-type:rounded-tr-[18px] last-of-type:rounded-b-[18px] hover:bg-orange-300 hover:border-orange-900 has-[.active]:bg-orange-400 has-[.active]:border-orange-700',
   ring: '',
 };
 
 const triggerUi = {
   strategy: 'override',
-  base: 'activator-second-level',
+  base: 'activator-second-level px-[18px] py-[5px] [&_span]:font-primary [&_span]:text-xl',
   rounded: '',
   inline: '',
   color: {
@@ -49,32 +49,8 @@ const triggerUi = {
 </template>
 
 <style lang="scss">
-.category-link {
-  .activator-second-level {
-    padding: 5px 18px;
-
-    span {
-      font-family: $font-family-primary;
-      font-size: 20px;
-    }
-  }
-}
-
 .article-dropdown-container {
   width: max-content !important;
   margin-top: -5px !important;
-
-  .article-dropdown-viewport {
-    @include dropdown-style;
-  }
-
-  .article-link {
-    display: block !important;
-    padding: 6px 18px !important;
-    font-family: $font-family-primary !important;
-    font-size: 16px !important;
-    @include section-category-dropdown-link;
-  }
 }
-
 </style>

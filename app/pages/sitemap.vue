@@ -38,11 +38,11 @@ function sectionTo(sectionLabel: string): string {
           <span class="section-label">{{ section.sectionLabel }}</span>
         </NuxtLink>
 
-        <div class="categories-list">
+        <div class="categories-list border-l-2 border-[#738815] ml-6">
           <div
             v-for="category in section.categories"
             :key="category.categoryName"
-            class="category-node"
+            class="category-node relative"
           >
             <div
               class="category-header flex items-center rounded-lg transition-colors duration-150 hover:bg-green-200 cursor-pointer"
@@ -66,7 +66,7 @@ function sectionTo(sectionLabel: string): string {
             </div>
 
             <div
-              class="articles-list overflow-hidden border-l-2 border-orange-300 ml-10"
+              class="articles-list overflow-hidden border-l-2 border-orange-300 ml-10 max-h-0 transition-[max-height] duration-300 ease-linear [&.open]:max-h-[2000px]"
               :class="{ open: openCategories[categoryKey(section.sectionName, category.categoryName)] }"
             >
               <NuxtLink
@@ -86,32 +86,14 @@ function sectionTo(sectionLabel: string): string {
 </template>
 
 <style scoped lang="scss">
-.categories-list {
-  border-left: 2px solid $green-600;
-  margin-left: 1.5rem;
-}
-
-.category-node {
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 1.1rem;
-    left: 0;
-    width: 0.75rem;
-    height: 2px;
-    background: $green-600;
-    transform: translateX(-100%);
-  }
-}
-
-.articles-list {
-  max-height: 0;
-  transition: max-height 0.3s ease;
-
-  &.open {
-    max-height: 2000px;
-  }
+.category-node::before {
+  content: '';
+  position: absolute;
+  top: 1.1rem;
+  left: 0;
+  width: 0.75rem;
+  height: 2px;
+  background: #738815;
+  transform: translateX(-100%);
 }
 </style>

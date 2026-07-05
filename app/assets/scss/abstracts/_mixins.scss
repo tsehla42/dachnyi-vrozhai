@@ -1,18 +1,5 @@
 @use "colors" as *;
 
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin overflow-ellipsis {
-  display: block;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
 @mixin custom-scrollbar(
   $width: 10px,
   $border-radius: 4px,
@@ -42,35 +29,3 @@
     background: $track-color;
   }
 }
-
-@mixin section-category-dropdown-link() {
-  background-color: $green-400;
-  border: 3px solid $green-800;
-  transition: all 0.1s;
-
-  &:first-of-type {
-    border-radius: 0 18px 0 0;
-  }
-
-  &:last-of-type {
-    border-radius: 0 0 18px 18px;
-  }
-
-  &:hover {
-    background: $orange-300;
-    border: 3px solid $orange-900;
-  }
-
-  &:has(.active) {
-    background: $orange-400;
-    border: 3px solid $orange-700;
-  }
-}
-
-@mixin dropdown-style() {
-  display: flex;
-  flex-flow: column;
-  gap: 4px;
-}
-
-

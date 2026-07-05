@@ -1,5 +1,5 @@
 ---
-title: 'dobryva'
+title: 'Добрива'
 description: 'meta опис сторінки'
 
 section: 'dobryva'

@@ -82,15 +82,15 @@ const slides = [
         dot: 'dot w-3 h-3 rounded-full bg-green-400/50 hover:bg-green-300/80 transition-all cursor-pointer data-[state=active]:bg-orange-500/80 data-[state=active]:w-8'
       }"
     >
-      <NuxtLink :to="slide.to" class="carousel__item relative block w-full h-full min-h-[300px] text-white text-xl">
+      <NuxtLink :to="slide.to" class="carousel__item flex items-center justify-center relative block w-full h-full min-h-[300px] text-white text-xl bg-orange-100 [&_img]:w-full [&_img]:h-full [&_img]:object-cover">
         <NuxtImg 
           :src="getPicturePath(slide.picture)" 
           :placeholder="[100, 50]"
           loading="lazy"
         />
-        <div class="bottom-text">
-          <h3>{{ slide.heading }}</h3>
-          <p>{{ slide.text }}</p>
+        <div class="bottom-text absolute bottom-0 z-[2] flex justify-center items-start flex-col w-full h-[128px] px-8 bg-black/42">
+          <h3 class="font-primary text-[1.8em]">{{ slide.heading }}</h3>
+          <p class="font-primary text-[1.2em] mb-4">{{ slide.text }}</p>
         </div>
       </NuxtLink>
     </UCarousel>
@@ -102,44 +102,13 @@ const slides = [
 </template>
 
 <style lang="scss">
-.carousel__item {
-  @include flex-center;
-  background-color: $orange-150;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.bottom-text {
+  h3 {
+    -webkit-text-stroke: 2px #000000;
   }
 
-  .bottom-text {
-    position: absolute;
-    bottom: 0;
-    z-index: 2;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-flow: column;
-
-    width: 100%;
-    height: 128px;
-    padding: 0 2em;
-
-    background-color: rgba($black, 42%);
-
-    h3 {
-      font-family: $font-family-primary;
-      font-size: 1.8em;
-      -webkit-text-stroke: 2px $black;
-    }
-
-    p {
-      font-family: $font-family-primary;
-      font-size: 1.2em;
-      -webkit-text-stroke: 1px $black;
-      margin: 0 0 16px ;
-    }
+  p {
+    -webkit-text-stroke: 1px #000000;
   }
 }
 
@@ -151,7 +120,7 @@ const slides = [
     font-size: 6rem;
     color: white;
     opacity: 0.5;
-    -webkit-text-stroke: 1px $black;
+    -webkit-text-stroke: 1px #000000;
     transition: opacity 0.2s;
   }
 
