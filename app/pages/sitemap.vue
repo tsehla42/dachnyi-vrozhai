@@ -21,7 +21,7 @@ function sectionTo(sectionLabel: string): string {
 
 <template>
   <div class="page container mx-auto px-4 sm:px-8 md:px-16 py-8">
-    <div class="flex justify-center items-center gap-2 mb-12">
+    <div class="sitemap-page-logo hidden sm:flex justify-center items-center gap-2 mb-12">
       <SvgIconLogoDachniy class="w-44 h-auto" />
       <SvgIconLogoVrozhai class="w-44 h-auto" />
     </div>
@@ -44,40 +44,48 @@ function sectionTo(sectionLabel: string): string {
             :key="category.categoryName"
             class="category-node relative"
           >
-            <div
-              class="category-header flex items-center rounded-lg transition-colors duration-150 hover:bg-green-200 cursor-pointer"
-              role="button"
-              tabindex="0"
-              :aria-expanded="openCategories[categoryKey(section.sectionName, category.categoryName)] ? 'true' : 'false'"
-              @click="toggleCategory(categoryKey(section.sectionName, category.categoryName))"
-              @keydown.enter.prevent="toggleCategory(categoryKey(section.sectionName, category.categoryName))"
-              @keydown.space.prevent="toggleCategory(categoryKey(section.sectionName, category.categoryName))"
-            >
-              <UIcon
-                name="i-heroicons-chevron-right-20-solid"
-                class="category-chevron w-5 h-5 shrink-0 mx-2 transition-transform duration-200"
-                :class="{ 'rotate-90': openCategories[categoryKey(section.sectionName, category.categoryName)] }"
-              />
-              <NuxtLink
-                :to="category.to"
-                class="category-label-link py-1.5 pr-3 text-lg text-gray-900 no-underline hover:underline"
-                @click.stop
-              >{{ category.label }}</NuxtLink>
-            </div>
-
-            <div
-              class="articles-list overflow-hidden border-l-2 border-orange-300 ml-10 max-h-0 transition-[max-height] duration-300 ease-linear [&.open]:max-h-[2000px]"
-              :class="{ open: openCategories[categoryKey(section.sectionName, category.categoryName)] }"
-            >
-              <NuxtLink
-                v-for="article in category.articles"
-                :key="article.to"
-                :to="article.to"
-                class="article-link block py-0.5 px-3 text-base text-orange-700 rounded hover:text-orange-500 hover:underline transition-colors duration-150"
+            <template v-if="category.articles.length">
+              <div
+                class="category-header flex items-center rounded-lg transition-colors duration-150 hover:bg-green-200 cursor-pointer"
+                role="button"
+                tabindex="0"
+                :aria-expanded="openCategories[categoryKey(section.sectionName, category.categoryName)] ? 'true' : 'false'"
+                @click="toggleCategory(categoryKey(section.sectionName, category.categoryName))"
+                @keydown.enter.prevent="toggleCategory(categoryKey(section.sectionName, category.categoryName))"
+                @keydown.space.prevent="toggleCategory(categoryKey(section.sectionName, category.categoryName))"
               >
-                {{ article.label }}
-              </NuxtLink>
-            </div>
+                <UIcon
+                  name="i-heroicons-chevron-right-20-solid"
+                  class="category-chevron w-5 h-5 shrink-0 mx-2 transition-transform duration-200"
+                  :class="{ 'rotate-90': openCategories[categoryKey(section.sectionName, category.categoryName)] }"
+                />
+                <NuxtLink
+                  :to="category.to"
+                  class="category-label-link py-1.5 pr-3 text-lg text-gray-900 no-underline hover:underline"
+                  @click.stop
+                >{{ category.label }}</NuxtLink>
+              </div>
+
+              <div
+                class="articles-list overflow-hidden border-l-2 border-orange-300 ml-10 max-h-0 transition-[max-height] duration-300 ease-linear [&.open]:max-h-[2000px]"
+                :class="{ open: openCategories[categoryKey(section.sectionName, category.categoryName)] }"
+              >
+                <NuxtLink
+                  v-for="article in category.articles"
+                  :key="article.to"
+                  :to="article.to"
+                  class="article-link block py-0.5 px-3 text-base text-orange-700 rounded hover:text-orange-500 hover:underline transition-colors duration-150"
+                >
+                  {{ article.label }}
+                </NuxtLink>
+              </div>
+            </template>
+
+            <NuxtLink
+              v-else
+              :to="category.to"
+              class="category-label-link block py-1.5 pl-7 pr-3 text-lg text-gray-900 no-underline hover:underline rounded-lg transition-colors duration-150 hover:bg-green-200"
+            >{{ category.label }}</NuxtLink>
           </div>
         </div>
       </div>

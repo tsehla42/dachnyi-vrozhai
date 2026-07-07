@@ -9,6 +9,7 @@ const props = defineProps({
 });
 
 const { section } = toRefs(props);
+const route = useRoute();
 
 const isOpen = ref(false);
 
@@ -21,6 +22,10 @@ function onMouseLeave() {
 }
 
 const sectionTo = computed(() => `/${transliterate(section.value.sectionLabel)}`);
+
+const isSectionActive = computed(() => {
+  return route.path === sectionTo.value || route.path.startsWith(sectionTo.value + '/');
+});
 
 const sectionCategories = computed(() => {
   if (!section.value.categories || !Array.isArray(section.value.categories)) {
@@ -74,9 +79,7 @@ const dropdownUi = {
       <NuxtLink
         :to="sectionTo"
         class="activator-first-level flex items-center justify-center leading-none outline-none transition-all duration-300 rounded-b-[18px] px-3 pt-[10px] pb-1 bg-green-400 border-3 border-green-800 border-t-0 hover:pb-[10px] hover:bg-[#FFC793] hover:border-[#2F1701] [&.is-open]:pb-[10px] [&.is-open]:bg-[#FFC793] [&.is-open]:border-[#2F1701] [&.active]:pb-3 [&.active]:bg-[#FFA859] [&.active]:border-[#FD6B15] [&_span]:text-[clamp(1rem,0.9rem+0.4vw,1.488rem)]"
-        :class="{ 'is-open': isOpen }"
-        active-class="active"
-        exact-active-class="exact-active"
+        :class="{ 'is-open': isOpen, 'active': isSectionActive }"
       >
         <span class="font-primary">{{ section.sectionLabel }}</span>
       </NuxtLink>
@@ -86,10 +89,10 @@ const dropdownUi = {
           v-if="item.children"
           :to="item.to"
           class="block text-inherit no-underline"
-          active-class="active"
+          :class="{ 'active': route.path === item.to || route.path.startsWith(item.to + '/') }"
           >{{ item.label }}</NuxtLink
         >
-        <span v-else>{{ item.label }}</span>
+        <span v-else :class="{ 'active': route.path === item.to }">{{ item.label }}</span>
       </template>
     </DvDropdown>
   </div>

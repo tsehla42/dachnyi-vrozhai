@@ -1,0 +1,13 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="16"
+    viewBox="0 0 24 16"
+    fill="none"
+  >
+    <line y1="1" x2="24" y2="1" stroke="currentColor" stroke-width="2" />
+    <line y1="8" x2="24" y2="8" stroke="currentColor" stroke-width="2" />
+    <line y1="15" x2="24" y2="15" stroke="currentColor" stroke-width="2" />
+  </svg>
+</template>
