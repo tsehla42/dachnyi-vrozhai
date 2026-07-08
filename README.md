@@ -1,6 +1,6 @@
 # Dachniy Vrozhai 🌱
 
-A Ukrainian gardening website built with Nuxt 3, providing comprehensive information about vegetables, flowers, pests, diseases, fertilizers, and gardening tools.
+A Ukrainian gardening website built with Nuxt 4, providing comprehensive information about vegetables, flowers, pests, diseases, fertilizers, and gardening tools.
 
 ## Setup
 
@@ -38,9 +38,10 @@ npm start
 
 ## Technologies
 
-- **Nuxt 4** - Vue.js framework
-- **Nuxt Content** - Content management
-- **Nuxt UI** - UI components
+- **Nuxt 4** - Vue.js framework (app directory convention)
+- **Nuxt Content** - Markdown content management
+- **Nuxt UI v4** - UI component library
+- **Tailwind CSS v4** - Utility-first CSS
 - **Pinia** - State management
 - **TypeScript** - Type safety
-- **SCSS** - Styling
+- **SCSS** - Supplementary styling (scrollbar, asset URLs)
