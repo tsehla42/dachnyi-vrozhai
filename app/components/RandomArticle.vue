@@ -283,16 +283,16 @@ const resetAllToDefaultState = () => {
     />
     <h3
       ref="articleLabel"
-      class="absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max p-3 text-center text-5xl bg-gray-100/28 backdrop-blur-xs rounded-lg transition duration-1000"
+      class="absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max p-2 sm:p-3 text-center text-xl sm:text-5xl bg-gray-100/28 backdrop-blur-xs rounded-lg transition duration-1000"
     >
       {{ selectedLabel ?? 'Випадкова стаття ' + randomArticleId }}
     </h3>
-    <article class="grid grid-cols-5">
+    <article class="grid grid-cols-3 sm:grid-cols-5">
       <div
         v-for="(item, index) in items"
         :key="item.id"
         :ref="(el) => functionRef(el as HTMLDivElement | null, index)"
-        class="image-container relative w-full h-32 border border-black overflow-hidden transition duration-200"
+        class="image-container relative w-full h-24 sm:h-32 border border-black overflow-hidden transition duration-200"
       >
         <NuxtImg
           :src="item.picturePath"

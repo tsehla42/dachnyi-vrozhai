@@ -15,5 +15,5 @@
 |---|---|---|
 | [components/header-section-dropdown.md](components/header-section-dropdown.md) | `SectionDropdown.vue` | Hover mechanics, gap-bridging, Tailwind styling, data shape |
 | [components/prose-h1.md](components/prose-h1.md) | `ProseH1.vue` | Hero images, provide/inject, responsive layout, image fallbacks |
-| [components/random-article.md](components/random-article.md) | `RandomArticle.vue` | FLIP animation, slot-machine highlight, data source |
+| [components/random-article.md](components/random-article.md) | `RandomArticle.vue` | Responsive grid (3/5 cols), FLIP animation, slot-machine highlight, data source |
 | [components/svg-icons.md](components/svg-icons.md) | SVG icons (`app/components/svg/`) | mask/clip-path ID collision, `useId()` fix, file structure, adding new icons |

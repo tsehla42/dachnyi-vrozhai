@@ -127,7 +127,7 @@ function isArticleActive(articleTo: string): boolean {
           <div v-for="section in contentSections" :key="section.sectionName">
             <!-- Section header with split click areas -->
             <div class="flex items-center gap-4 py-2.5">
-              <component :is="SVG_ICON_COMPONENTS_MAP[section.sectionName]" class="w-7 h-7 shrink-0 cursor-pointer" @click="toggleSection(section.sectionName)" />
+              <component :is="SVG_ICON_COMPONENTS_MAP[section.sectionName]" class="w-7 h-7 shrink-0 cursor-pointer" :class="{ 'animate-bounce': expandedSections[section.sectionName] }" @click="toggleSection(section.sectionName)" />
               <NuxtLink
                 :to="'/' + transliterate(section.sectionLabel)"
                 class="font-primary text-xl"

@@ -62,7 +62,7 @@ const slides = [
 </script>
 
 <template>
-  <article class="carousel-container w-full mb-12 border-4 border-black rounded-[20px] overflow-hidden">
+  <article class="carousel-container w-full mb-8 sm:mb-12 border-2 sm:border-4 border-black rounded-[12px] sm:rounded-[20px] overflow-hidden">
     <ClientOnly>
     <UCarousel 
       v-slot="{ item: slide }" 
@@ -74,28 +74,28 @@ const slides = [
       next-icon="i-heroicons-chevron-right-20-solid"
       class="carousel"
       :ui="{
-        viewport: 'viewport overflow-hidden min-h-[300px]',
+        viewport: 'viewport overflow-hidden min-h-[200px] sm:min-h-[250px] lg:min-h-[300px]',
         item: 'item min-w-full shrink-0 grow-0 basis-full',
-        prev: 'btn-prev absolute left-0 h-full w-1/8 bg-transparent flex items-center justify-center rounded-none shadow-none ring-0 p-0 cursor-ew-resize',
-        next: 'btn-next absolute right-0 h-full w-1/8 bg-transparent flex items-center justify-center rounded-none shadow-none ring-0 p-0 cursor-ew-resize',
-        dots: 'dots-container absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-[3]',
+        prev: 'btn-prev absolute left-0 h-full w-1/8 bg-transparent hidden md:flex items-center justify-center rounded-none shadow-none ring-0 p-0 cursor-ew-resize',
+        next: 'btn-next absolute right-0 h-full w-1/8 bg-transparent hidden md:flex items-center justify-center rounded-none shadow-none ring-0 p-0 cursor-ew-resize',
+        dots: 'dots-container absolute bottom-2 sm:bottom-4 left-0 right-0 flex justify-center gap-1.5 sm:gap-2 z-[3]',
         dot: 'dot w-3 h-3 rounded-full bg-green-400/50 hover:bg-green-300/80 transition-all cursor-pointer data-[state=active]:bg-orange-500/80 data-[state=active]:w-8'
       }"
     >
-      <NuxtLink :to="slide.to" class="carousel__item flex items-center justify-center relative block w-full h-full min-h-[300px] text-white text-xl bg-orange-100 [&_img]:w-full [&_img]:h-full [&_img]:object-cover">
+      <NuxtLink :to="slide.to" class="carousel__item flex items-center justify-center relative block w-full h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] text-white text-base sm:text-lg lg:text-xl bg-orange-100 [&_img]:w-full [&_img]:h-full [&_img]:object-cover">
         <NuxtImg 
           :src="getPicturePath(slide.picture)" 
           :placeholder="[100, 50]"
           loading="lazy"
         />
-        <div class="bottom-text absolute bottom-0 z-[2] flex justify-center items-start flex-col w-full h-[128px] px-8 bg-black/42">
-          <h3 class="font-primary text-[1.8em]">{{ slide.heading }}</h3>
-          <p class="font-primary text-[1.2em] mb-4">{{ slide.text }}</p>
+        <div class="bottom-text absolute bottom-0 z-[2] flex justify-center items-start flex-col w-full h-[80px] sm:h-[100px] lg:h-[128px] px-4 sm:px-6 lg:px-8 bg-black/42">
+          <h3 class="font-primary text-[1.2em] sm:text-[1.5em] lg:text-[1.8em]">{{ slide.heading }}</h3>
+          <p class="font-primary text-[0.9em] sm:text-[1em] lg:text-[1.2em] mb-2 sm:mb-3 lg:mb-4">{{ slide.text }}</p>
         </div>
       </NuxtLink>
     </UCarousel>
     <template #fallback>
-      <div class="min-h-[300px] bg-gray-100 animate-pulse" />
+      <div class="min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] bg-gray-100 animate-pulse" />
     </template>
     </ClientOnly>
   </article>

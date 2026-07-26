@@ -4,7 +4,16 @@
 
 ## Purpose
 
-Displays a 5×3 grid of 15 random article thumbnails on the homepage. When clicked, runs a slot-machine highlight animation that lands on a pre-selected article, then expands that card via FLIP animation to fill the component and navigates to the article page.
+Displays a grid of 15 random article thumbnails on the homepage. On mobile (below `sm` breakpoint), renders as 3 columns × 5 rows. On desktop (`sm` and above), renders as 5 columns × 3 rows. When clicked, runs a slot-machine highlight animation that lands on a pre-selected article, then expands that card via FLIP animation to fill the component and navigates to the article page.
+
+## Responsive Grid
+
+| Breakpoint | Columns | Card height | Text overlay size |
+|---|---|---|---|
+| Default (mobile) | 3 | `h-24` (96px) | `text-xl` |
+| `sm` (640px+) | 5 | `h-32` (128px) | `text-5xl` |
+
+The animation logic is layout-independent — `getBoundingClientRect()` reads actual rendered positions dynamically, so the FLIP expansion works correctly at any grid configuration.
 
 ## Animation Flow
 

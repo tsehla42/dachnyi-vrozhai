@@ -20,7 +20,7 @@
       iste natus quasi ratione!
     </p>
 
-    <Carousel class="hidden lg:block" />
+    <Carousel />
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dicta eaque laboriosam optio placeat quasi rerum

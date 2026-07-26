@@ -45,9 +45,19 @@ components/
 
 ## Generic Components
 
-**`ItemCard`** (`app/components/item/Card.vue`) — Renders a single category or article card with image, label, and link. Used on section pages, category pages, and the sitemap.
+**`ItemCard`** (`app/components/item/Card.vue`) — Renders a single category or article card with image, label, and link. Used on section pages, category pages, and the sitemap. Responsive image sizing: `max-w-40` on mobile, `max-w-52` on `sm+`.
 
-**`ItemList`** (`app/components/item/List.vue`) — Renders a grid of `ItemCard` components for a given section and optional category. Consumes data from `useSections()`.
+**`ItemList`** (`app/components/item/List.vue`) — Renders a grid of `ItemCard` components for a given section and optional category. Responsive grid: 2 columns on mobile, scaling to 6 columns on `2xl`. Consumes data from `useSections()`.
+
+## Homepage Components
+
+**`Carousel`** (`app/components/Carousel.vue`) — Image carousel on the homepage using UCarousel (Embla). Touch swipe works out of the box. Hidden on mobile: arrows hidden below `md` (users swipe/dots instead). Responsive viewport height (`min-h-[200px]` mobile → `min-h-[300px]` desktop) and text overlay sizing.
+
+**`Accordion`** (`app/components/Accordion.vue`) — Sections accordion on the homepage. Responsive trigger sizing: `text-lg` label, `w-9 h-9` icon, `w-5 h-5` chevron on mobile, scaling up on `sm`/`md` breakpoints. Section icons animate (bounce) when expanded.
+
+**`AdvicesCard`** (`app/components/advices/Card.vue`) — Single advice card with flexbox layout (image left, text right). `w-20 h-20` image with `flex-shrink-0`. Used inside `AdvicesList` which renders as single column on mobile, 2 columns on `md+`.
+
+**`MobileBurgerMenu`** (`app/components/MobileBurgerMenu.vue`) — Mobile navigation overlay. Section icons animate (bounce) when their section is expanded. Only visible below `sm` breakpoint.
 
 ## Detailed Component Docs
 
