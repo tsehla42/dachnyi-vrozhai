@@ -53,10 +53,10 @@ onMounted(() => {
       ref="imgRef"
       class="picture w-full max-w-40 sm:max-w-52 aspect-square object-cover saturate-[70%] brightness-90 group-hover:saturate-100 group-hover:brightness-100 transition-all rounded-md border-4 border-solid border-black"
       :src="pictureSrc"
-      @error="onImageError"
       width="200"
       height="200"
       loading="lazy"
+      @error="onImageError"
     />
   </NuxtLink>
 </template>

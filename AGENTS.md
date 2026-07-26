@@ -73,6 +73,12 @@ npm run generate  # Build static site → .output/public/
 npm run lint      # ESLint --fix
 ```
 
+### Dependency Management
+- **Pin all versions** — Use exact versions in `package.json` without `^`, `~`, or `>=` prefixes.
+- When updating, check for security advisories and changelogs before bumping.
+- Respect peer dependency constraints (e.g., `@nuxt/content` requires `better-sqlite3@^12.x`).
+- `typescript` is held at 6.x — version 7 breaks Volar/Vue editor support.
+
 ### Transliteration
 Ukrainian slugs are converted to Latin URL paths via `app/utils/transliteration.utils.ts`. Always use `transliterate()` when constructing paths from Ukrainian strings. Parentheses are stripped from slugs but kept in display labels.
 
