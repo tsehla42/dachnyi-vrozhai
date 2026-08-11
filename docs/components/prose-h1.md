@@ -74,7 +74,7 @@ All styling is done via Tailwind utility classes — there is no `<style>` block
 
 ### Mobile (max-sm breakpoint)
 
-`max-sm:float-none max-sm:block max-sm:w-full max-sm:max-h-[300px] max-sm:mb-4`
+`max-sm:float-none max-sm:block max-sm:w-full max-sm:max-h-[500px] max-sm:mb-4`
 
 ### Fallback state
 

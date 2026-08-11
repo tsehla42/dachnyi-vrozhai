@@ -35,11 +35,11 @@ onMounted(() => {
   <NuxtImg
     v-if="heroImageSrc"
     ref="imgRef"
-    class="float-left w-[400px] max-w-full mr-6 rounded-lg aspect-[4/3] max-sm:float-none max-sm:block max-sm:w-full max-sm:max-h-[300px] max-sm:mb-4"
+    class="float-left w-[600px] max-w-full mr-6 rounded-lg aspect-[4/3] max-sm:float-none max-sm:block max-sm:w-full max-sm:max-h-[500px] max-sm:mb-4"
     :class="isFallback ? 'object-contain bg-[#c8d979]' : 'object-cover'"
     :src="heroImageSrc"
-    width="400"
-    height="300"
+    width="600"
+    height="450"
     loading="eager"
     @error="onImageError"
   />
